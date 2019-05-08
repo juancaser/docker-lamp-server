@@ -16,7 +16,7 @@ services:
       - ${VHOSTS_DIR-./config/vhosts}:/etc/apache2/sites-enabled
       - ${LOG_DIR-./logs/apache2}:/var/log/apache2
   mysql-server:
-    build: ./bin/mysql
+    image: mariadb:latest
     container_name: 'mysql-server'
     ports:
       - "${HOST_MACHINE_MYSQL_PORT}:3306"
@@ -28,6 +28,3 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-networks:
-  docker-net:
-    driver: bridge
