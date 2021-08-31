@@ -2,3 +2,4 @@ logs/
 sample.env
 logs
 .gitkeep
+www/*
