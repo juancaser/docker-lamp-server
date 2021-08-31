@@ -1,8 +1,9 @@
 version: "3"
 
 services:
-    www:        
-        image: php:5.6-apache-jessie
+    www:
+        image: php:5.6-apache-jessie # Replace the image according to needs
+        container_name: 'webserver'
         ports: 
             - "80:80"
         volumes:
@@ -15,7 +16,8 @@ services:
         networks:
             - default
     db:
-        image: mysql:5.5
+        image: mysql:5.5  # Replace the image according to needs
+        container_name: 'mysql'
         ports: 
             - "3306:3306"
         environment:
@@ -30,6 +32,7 @@ services:
             - default
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
+        container_name: 'phpmyadmin'
         links: 
             - db:db
         ports:
